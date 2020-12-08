@@ -7,6 +7,7 @@ This requires you to have a ff2zim project with the fanfics first.
 import argparse
 import os
 import time
+import sys
 
 from ff2zim.project import Project
 from ff2zim.epubconverter import Html2EpubConverter
@@ -15,8 +16,10 @@ from html2text import html2text
 from fanficfare.htmlcleanup import removeAllEntities
 import ebooklib, ebooklib.epub
 
-# before importing gpt-2, set verbosity level
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+
+# before importing gpt-2, set verbosity level if debug mode enabled
+if "-d" in sys.argv or "--debug" in sys.argv:
+    os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 import gpt_2_simple as gpt2
 
 
