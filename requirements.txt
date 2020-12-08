@@ -1,0 +1,6 @@
+gpt-2-simple
+ff2zim
+html2text
+fanficfare
+ebooklib
+
