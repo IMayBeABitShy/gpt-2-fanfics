@@ -254,6 +254,7 @@ def main():
     
     # parser for generating
     genparser = subparsers.add_parser("generate", help="generate a sample with an interactive prompt")
+    genparser.add_argument("--model", action="store", default="124M", help="model to use")
     genparser.add_argument("--run-name", action="store", dest="runname", default="run1", help="run name for finetuned model.")
     genparser.add_argument("-n", "--numsamples", action="store", type=int, help="number of samples to generate", default=1)
     genparser.add_argument("-m", "--mode", action="store", choices=("story", "chapter", "complete"), default="story")
@@ -333,6 +334,7 @@ def main():
                 multisamples = True
                 gpt2results = gpt2.generate(
                     sess,
+                    model_name=ns.model,
                     run_name=ns.runname,
                     prefix=prefix,
                     return_as_list=True,
